@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrderTest</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", "Microsoft YaHei", STHeiti,
+        sans-serif;
+    }
+
+    .orderList {
+      display: inline;
+    }
+
+    div {
+      margin-left: 20px;
+    }
+
+    h1 {
+      margin-left: 30px;
+    }
+
+    .orderBtn {
+      float: right;
+      display: block;
+      top: -200px;
+
+    }
+
+    button {
+      margin-left: 20px;
+      width: 150px;
+      height: 150px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    //import cola from '../cola.jpg'
+    function Order() {
+      let [count, setCount] = React.useState(0);
+      let [count2, setCount2] = React.useState(0);
+      let [count3, setCount3] = React.useState(0);
+      let [price, setPrice] = React.useState(0);
+      let [price2, setPrice2] = React.useState(0);
+      let [price3, setPrice3] = React.useState(0);
+
+
+      const setDrinkCount = () => {
+        setCount(count + 1);
+        setPrice(price + 35);
+      };
+      const setFoodCount = () => {
+        //setCount(count + 1);
+        setCount2(count2 + 1);
+        setPrice2(price2 + 40);
+      };
+      const setDrinkCount2 = () => {
+        //setCount(count + 1);
+        setCount3(count3 + 1);
+        setPrice3(price3 + 25);
+      };
+
+      return (
+        <div class="orderList col-md-12">
+          <h1> 餐點清單</h1>
+          <div class="col-md-4">
+
+            <h3>可樂 x {count}    ${price}</h3>
+            <h3>泡麵 x {count2}   ${price2}</h3>
+            <h3>奶茶 x {count3}   ${price3}</h3>
+            <br />
+            <h2>總計 ${price + price2 + price3}</h2>
+          </div>
+          <div class="col-md-8 orderBtn">
+            <button onClick={setDrinkCount}
+              className="btn btn-outline-success"
+            ><h4>可樂 $35</h4>
+            </button>
+            <button onClick={setFoodCount}
+              className="btn btn-outline-success"
+            ><h4>泡麵 $40</h4>
+            </button>
+            <button
+              onClick={setDrinkCount2}
+              className="btn btn-outline-success"
+            ><h4>奶茶 $25</h4>
+            </button>
+          </div>
+
+        </div>
+      );
+    }
+
+    ReactDOM.render(<Order />, document.getElementById("root"));
+  </script>
+</body>
+
+</html>
